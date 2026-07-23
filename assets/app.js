@@ -28,7 +28,12 @@
   var mainBox=main?main.closest(".main"):null;
   var galCap=mainBox?$(".gal-cap",mainBox):null;
   function galApply(t){
-    if(main){ main.className = "imgph "+(t.dataset.tone||""); var lbl=$(".lbl",main); if(lbl&&t.dataset.label)lbl.textContent=t.dataset.label; }
+    if(main){
+      var src=t.dataset.src||"";
+      main.className = "imgph "+(t.dataset.tone||"")+(src?" has-photo":"");
+      main.style.backgroundImage = src ? "url('"+src+"')" : "";
+      var lbl=$(".lbl",main); if(lbl&&t.dataset.label)lbl.textContent=t.dataset.label;
+    }
     if(mainBox){
       var kind=t.dataset.kind||"";
       mainBox.classList.toggle("is-video",  kind==="video");

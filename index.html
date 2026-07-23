@@ -6,7 +6,7 @@
 <title>Bàn mầm non gỗ tự nhiên cao cấp ABC | Việt Mỹ — Demo đã fix</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=17">
+<link rel="stylesheet" href="assets/style.css?v=23">
 <style>
 /* Trang chi tiết SP: "tương tự" & "vừa xem" — 1 hàng 5 sản phẩm (không đổi grid dùng chung) */
 .grid-p.g5{grid-template-columns:repeat(5,1fr)}
@@ -87,7 +87,6 @@
     <h1 class="ptitle">Bàn mầm non gỗ tự nhiên cao cấp ABC</h1>
     <!-- meta sản phẩm · cột trái, ngang hàng với giá & sidebar bên phải -->
     <div class="phead">
-      <div class="sku">Mã sản phẩm: <b>VM-CT0015</b></div>
       <div class="rrow"><span class="star">★★★★★ 4.9</span> · <span>126 đánh giá</span> · <span>Đã bán 250+</span></div>
       <!-- mục lục: điều hướng nhanh tới các mục bên dưới -->
       <nav class="ptoc" aria-label="Mục lục sản phẩm">
@@ -100,9 +99,10 @@
 
     <!-- gallery -->
     <div class="gallery">
-      <div class="main is-video"><div class="imgph warm" id="galMain"><svg><use href="#ic-table"/></svg></div><span class="bdg">Bán chạy</span><span class="zoom"><svg><use href="#ic-zoom"/></svg></span><button class="gal-play" type="button" aria-label="Phát video giới thiệu sản phẩm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button><span class="gal-cap" aria-hidden="true"></span></div>
+      <div class="main"><div class="imgph warm has-photo" id="galMain" style="background-image:url('assets/img/thong-tin-san-pham.png')"><svg><use href="#ic-table"/></svg></div><span class="bdg">Bán chạy</span><span class="zoom"><svg><use href="#ic-zoom"/></svg></span><button class="gal-play" type="button" aria-label="Phát video giới thiệu sản phẩm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button><span class="gal-cap" aria-hidden="true"></span></div>
       <div class="thumbs">
-        <div class="t vid active" data-kind="video" data-tone="warm"><div class="imgph warm"><svg><use href="#ic-table"/></svg></div></div>
+        <div class="t active" data-kind="image" data-src="assets/img/thong-tin-san-pham.png"><div class="imgph has-photo" style="background-image:url('assets/img/thong-tin-san-pham.png')"></div></div>
+        <div class="t vid" data-kind="video" data-tone="warm"><div class="imgph warm"><svg><use href="#ic-table"/></svg></div></div>
         <div class="t cap" data-kind="caption" data-tone="" data-caption="Bo góc an toàn 360° · Đạt chuẩn EN71-3"><div class="imgph"><svg><use href="#ic-table"/></svg></div></div>
         <div class="t" data-tone="mint"><div class="imgph mint"><svg><use href="#ic-table"/></svg></div></div>
         <div class="t" data-tone="warm"><div class="imgph warm"><svg><use href="#ic-table"/></svg></div></div>
@@ -144,12 +144,13 @@
         </div>
       </div>
 
-      <h3 class="pinfo-h">Thông tin sản phẩm</h3>
+      <h3 class="pinfo-h">Mô tả</h3>
       <ul class="pinfo-list">
-        <li>Gỗ tự nhiên nhập khẩu, chống mối mọt &amp; cong vênh.</li>
-        <li>Phủ sơn gốc nước không độc hại, đạt tiêu chuẩn EN71-3.</li>
-        <li>Thiết kế bo tròn góc 360°, an toàn cho bé 2 – 6 tuổi.</li>
-        <li>Kích thước chuẩn nhân trắc học, bảo vệ cột sống của trẻ.</li>
+        <li><b>Mã sản phẩm:</b> VM-CT0015</li>
+        <li><b>Kích thước:</b> 120 × 60 × 50 cm (size Chuẩn)</li>
+        <li><b>Chất liệu:</b> Gỗ tự nhiên nhập khẩu, chống mối mọt &amp; cong vênh</li>
+        <li><b>Tiêu chuẩn:</b> Đạt EN71-3, ISO 9001:2015 · sơn không chì, không formaldehyde</li>
+        <li><b>Màu sắc:</b> Vân gỗ tự nhiên · Xanh mint · Hồng pastel</li>
       </ul>
 
       <div class="qty"><span style="font-weight:600;color:var(--navy)">Số lượng:</span>
@@ -606,6 +607,6 @@ window.VM_GRIDS=[{el:"rel",items:REL},{el:"rec",items:REC}];
   }
 })();
 </script>
-<script src="assets/app.js?v=5"></script>
+<script src="assets/app.js?v=6"></script>
 </body>
 </html>

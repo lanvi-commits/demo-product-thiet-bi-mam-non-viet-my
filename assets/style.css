@@ -124,6 +124,8 @@ h1,h2,h3,h4{margin:0;font-weight:700;color:var(--navy);line-height:1.2;letter-sp
 .imgph{background:linear-gradient(135deg,#eef2f7,#e3e9f1);position:relative;display:grid;place-items:center;overflow:hidden}
 .imgph svg{width:34%;max-width:64px;height:auto;stroke:#b6c1d0;fill:none;stroke-width:1.4;opacity:.85}
 .imgph.warm{background:linear-gradient(135deg,#f3ede4,#eadfce)}
+.imgph.has-photo{background-size:contain;background-position:center;background-repeat:no-repeat;background-color:#fff}
+.imgph.has-photo>svg{display:none}
 .imgph.mint{background:linear-gradient(135deg,#e6f3ec,#d7ebe0)}
 
 /* ---------- product card ---------- */
@@ -452,7 +454,6 @@ h1,h2,h3,h4{margin:0;font-weight:700;color:var(--navy);line-height:1.2;letter-sp
 /* tiêu đề tách riêng · full-width trên gallery ở mọi màn hình */
 .phead{grid-column:1/-1}
 .ptitle{grid-column:1/-1;font-size:26px;line-height:1.2;margin:0 0 10px}
-.phead .sku{font-size:13px;color:var(--muted);margin:0 0 8px}
 .phead .rrow{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
 .phead .rrow .star{color:var(--amber);font-weight:700}
 .pinfo .prices{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
@@ -471,6 +472,7 @@ h1,h2,h3,h4{margin:0;font-weight:700;color:var(--navy);line-height:1.2;letter-sp
 .pinfo-list{list-style:none;padding:0;margin:0 0 18px}
 .pinfo-list li{position:relative;padding:6px 0 6px 20px;font-size:15px;line-height:1.55;color:var(--ink)}
 .pinfo-list li::before{content:"";position:absolute;left:5px;top:13px;width:6px;height:6px;border-radius:50%;background:var(--navy)}
+.pinfo-list li b{color:var(--navy);font-weight:700}
 /* Tùy chọn sản phẩm: kích thước (chip) + màu sắc (ô màu) */
 .popts{display:flex;flex-direction:column;gap:14px;margin:14px 0 16px;padding-top:16px;border-top:1px solid var(--line-2)}
 .popt-lbl{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:9px}
