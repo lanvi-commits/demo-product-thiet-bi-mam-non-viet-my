@@ -6,7 +6,7 @@
 <title>Bàn mầm non gỗ tự nhiên cao cấp ABC | Việt Mỹ — Demo đã fix</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=16">
+<link rel="stylesheet" href="assets/style.css?v=17">
 <style>
 /* Trang chi tiết SP: "tương tự" & "vừa xem" — 1 hàng 5 sản phẩm (không đổi grid dùng chung) */
 .grid-p.g5{grid-template-columns:repeat(5,1fr)}
@@ -311,7 +311,7 @@
       <p>Bàn đẹp, chắc chắn, giao hàng đúng hẹn. Sẽ tiếp tục ủng hộ Việt Mỹ.</p>
       <div class="foot"><span>👍 Hữu ích (2)</span><span>Phản hồi</span></div>
     </div>
-    <div style="display:flex;gap:12px;justify-content:center;margin-top:20px"><a class="btn btn-ghost" href="#">Xem thêm 123 đánh giá</a><a class="btn btn-green" href="#">Viết đánh giá</a></div>
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:20px"><a class="btn btn-ghost" href="#">Xem thêm 123 đánh giá</a><button class="btn btn-green" id="wrOpen" type="button">Viết đánh giá</button></div>
   </div>
 
   <!-- related: sản phẩm tương tự -->
@@ -364,6 +364,120 @@
   <div class="pp"><b>4.200.000đ</b><span>4.550.000đ</span></div>
   <a class="btn btn-quote" href="#"><svg style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8"><use href="#ic-doc"/></svg> Báo giá</a>
   <a class="btn btn-green" href="#">Mua ngay</a>
+</div>
+
+<!-- ===== Popup: Viết đánh giá (review write) ===== -->
+<div class="wr-scrim" id="wrScrim"></div>
+<div class="wr-host" id="wrHost" role="dialog" aria-modal="true" aria-labelledby="wrTitle" aria-hidden="true">
+  <form class="wr-panel" id="wrForm" novalidate>
+    <button class="wr-x" id="wrClose" type="button" aria-label="Đóng">✕</button>
+
+    <div class="wr-head">
+      <h2 class="wr-title" id="wrTitle">Viết đánh giá</h2>
+      <div class="wr-prod">
+        <span class="wr-thumb imgph warm"><svg><use href="#ic-table"/></svg></span>
+        <div>
+          <b>Bàn mầm non gỗ tự nhiên cao cấp ABC</b>
+          <span class="wr-prod-meta"><span class="star">★★★★★ 4.9</span> · 126 đánh giá</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wr-body">
+      <!-- overall rating -->
+      <div class="wr-field" data-field="overall">
+        <label class="wr-lbl">Bạn đánh giá sản phẩm này thế nào? <i class="req">*</i></label>
+        <div class="wr-rate-main">
+          <div class="wr-stars wr-stars-lg" role="radiogroup" aria-label="Đánh giá tổng thể" data-rate="overall">
+            <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="1" aria-label="1 sao – Rất tệ">★</button>
+            <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="2" aria-label="2 sao – Không hài lòng">★</button>
+            <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="3" aria-label="3 sao – Bình thường">★</button>
+            <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="4" aria-label="4 sao – Hài lòng">★</button>
+            <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="5" aria-label="5 sao – Tuyệt vời">★</button>
+          </div>
+          <span class="wr-rate-word" id="wrWord" aria-live="polite"></span>
+        </div>
+        <span class="wr-err" id="wrErrOverall">Vui lòng chọn số sao đánh giá.</span>
+      </div>
+
+      <hr class="wr-hr">
+
+      <!-- experience sub-ratings -->
+      <div class="wr-field">
+        <label class="wr-lbl">Chấm theo trải nghiệm <span class="wr-opt">(tuỳ chọn)</span></label>
+        <div class="wr-subs">
+          <div class="wr-sub">
+            <span class="wr-sub-lb">Độ an toàn cho trẻ</span>
+            <div class="wr-stars" role="radiogroup" aria-label="Độ an toàn cho trẻ" data-rate="safe">
+              <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="1" aria-label="1 sao">★</button>
+              <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="2" aria-label="2 sao">★</button>
+              <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="3" aria-label="3 sao">★</button>
+              <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="4" aria-label="4 sao">★</button>
+              <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="5" aria-label="5 sao">★</button>
+            </div>
+          </div>
+          <div class="wr-sub">
+            <span class="wr-sub-lb">Chất lượng &amp; độ bền</span>
+            <div class="wr-stars" role="radiogroup" aria-label="Chất lượng và độ bền" data-rate="quality">
+              <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="1" aria-label="1 sao">★</button>
+              <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="2" aria-label="2 sao">★</button>
+              <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="3" aria-label="3 sao">★</button>
+              <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="4" aria-label="4 sao">★</button>
+              <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="5" aria-label="5 sao">★</button>
+            </div>
+          </div>
+          <div class="wr-sub">
+            <span class="wr-sub-lb">Thiết kế &amp; thẩm mỹ</span>
+            <div class="wr-stars" role="radiogroup" aria-label="Thiết kế và thẩm mỹ" data-rate="design">
+              <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="1" aria-label="1 sao">★</button>
+              <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="2" aria-label="2 sao">★</button>
+              <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="3" aria-label="3 sao">★</button>
+              <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="4" aria-label="4 sao">★</button>
+              <button type="button" class="wr-star" role="radio" aria-checked="false" data-val="5" aria-label="5 sao">★</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="wr-hr">
+
+      <!-- review text -->
+      <div class="wr-field" data-field="text">
+        <label class="wr-lbl" for="wrText">Nhận xét của bạn <i class="req">*</i></label>
+        <textarea id="wrText" class="wr-textarea" maxlength="500" rows="4"
+          placeholder="Chia sẻ cảm nhận để phụ huynh khác tham khảo: chất lượng gỗ, độ an toàn cho bé, đóng gói &amp; giao hàng…"></textarea>
+        <div class="wr-count">
+          <span class="wr-err" id="wrErrText">Nhận xét cần tối thiểu 15 ký tự.</span>
+          <span class="wr-counter"><b id="wrLen">0</b>/500 · tối thiểu 15</span>
+        </div>
+      </div>
+
+      <!-- media -->
+      <div class="wr-field">
+        <label class="wr-lbl">Thêm hình ảnh / video <span class="wr-opt">(tuỳ chọn · tối đa 5)</span></label>
+        <div class="wr-media" id="wrMedia">
+          <button type="button" class="wr-add" id="wrAdd" aria-label="Thêm ảnh hoặc video">+<span>Ảnh/Video</span></button>
+        </div>
+        <input type="file" id="wrFile" accept="image/*,video/*" multiple hidden>
+      </div>
+
+      <hr class="wr-hr">
+
+      <!-- name + verified -->
+      <div class="wr-field wr-namerow">
+        <div class="wr-name">
+          <label class="wr-lbl" for="wrName">Tên hiển thị <span class="wr-opt">(tuỳ chọn)</span></label>
+          <input type="text" id="wrName" class="wr-input" maxlength="40" placeholder="VD: Chị Hương">
+        </div>
+        <label class="wr-check"><input type="checkbox" id="wrVerified" checked><span>Tôi đã mua sản phẩm</span></label>
+      </div>
+    </div>
+
+    <div class="wr-foot">
+      <button type="submit" class="btn btn-green wr-submit">Gửi đánh giá <svg><use href="#ic-arrow"/></svg></button>
+      <p class="wr-note">🔒 Đánh giá hiển thị công khai, giúp phụ huynh khác chọn đồ an toàn cho bé.</p>
+    </div>
+  </form>
 </div>
 
 <script>
@@ -492,6 +606,6 @@ window.VM_GRIDS=[{el:"rel",items:REL},{el:"rec",items:REC}];
   }
 })();
 </script>
-<script src="assets/app.js?v=4"></script>
+<script src="assets/app.js?v=5"></script>
 </body>
 </html>
