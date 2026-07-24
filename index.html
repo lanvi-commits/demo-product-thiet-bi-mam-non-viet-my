@@ -124,13 +124,13 @@
 
       <h3 class="pinfo-h">Mô tả</h3>
       <ul class="pinfo-list">
-        <li><b>Mã sản phẩm:</b> VM-CT0015</li>
-        <li><b>Xuất xứ:</b> Sản xuất tại xưởng Việt Mỹ Educational (Việt Nam)</li>
-        <li><b>Kích thước:</b> 120 × 60 × 50 cm (size Chuẩn)</li>
-        <li><b>Độ tuổi:</b> 2 – 6 tuổi (bậc mầm non)</li>
+        <li><b>Mã sản phẩm:</b> <span data-pd-sku>VM-CT0015</span></li>
+        <li><b>Kích thước:</b> <span data-pd-dim>120 × 60 × 50 cm (size Chuẩn)</span></li>
         <li><b>Màu sắc:</b> Vân gỗ tự nhiên · Xanh mint · Hồng pastel</li>
-        <li><b>Chất liệu:</b> Gỗ tự nhiên nhập khẩu, chống mối mọt &amp; cong vênh</li>
-        <li><b>Tiêu chuẩn:</b> Đạt EN71-3, ISO 9001:2015 · sơn không chì, không formaldehyde</li>
+        <li><b>Xuất xứ:</b> Việt Nam</li>
+        <li><b>Chất liệu:</b> Gỗ tự nhiên nhập khẩu</li>
+        <li><b>Độ tuổi:</b> 2 – 6 tuổi (bậc mầm non)</li>
+        <li><b>Tiêu chuẩn:</b> Đạt EN71-3, ISO 9001:2015</li>
       </ul>
 
       <!-- tùy chọn: kích thước (chip) + màu sắc (ô màu) -->
@@ -138,9 +138,9 @@
         <div class="popt">
           <div class="popt-lbl">Tuỳ chọn</div>
           <div class="popt-chips" data-chipgroup data-sizeprice>
-            <button type="button" data-now="3.600.000đ" data-old="3.900.000đ" data-off="-8%" data-save="300.000đ"><b>Nhỏ</b><span>100×50×45 cm</span><em class="cp">3.600.000đ</em></button>
-            <button type="button" class="active" data-now="4.200.000đ" data-old="4.550.000đ" data-off="-8%" data-save="350.000đ"><b>Chuẩn</b><span>120×60×50 cm</span><em class="cp">4.200.000đ</em></button>
-            <button type="button" data-now="4.900.000đ" data-old="5.300.000đ" data-off="-8%" data-save="400.000đ"><b>Lớn</b><span>140×70×55 cm</span><em class="cp">4.900.000đ</em></button>
+            <button type="button" data-now="3.600.000đ" data-old="3.900.000đ" data-off="-8%" data-save="300.000đ" data-sku="VM-CT0015" data-dim="100 × 50 × 45 cm (size Nhỏ)"><b>Nhỏ</b><span>100×50×45 cm</span><em class="cp">3.600.000đ</em></button>
+            <button type="button" class="active" data-now="4.200.000đ" data-old="4.550.000đ" data-off="-8%" data-save="350.000đ" data-sku="VM-CT0015" data-dim="120 × 60 × 50 cm (size Chuẩn)"><b>Chuẩn</b><span>120×60×50 cm</span><em class="cp">4.200.000đ</em></button>
+            <button type="button" data-now="4.900.000đ" data-old="5.300.000đ" data-off="-8%" data-save="400.000đ" data-sku="VM-CT0015" data-dim="140 × 70 × 55 cm (size Lớn)"><b>Lớn</b><span>140×70×55 cm</span><em class="cp">4.900.000đ</em></button>
           </div>
         </div>
         <div class="popt">
@@ -548,12 +548,18 @@ window.VM_GRIDS=[{el:"rel",items:REL},{el:"rec",items:REC}];
     var now = btn.getAttribute("data-now"),
         old = btn.getAttribute("data-old"),
         off = btn.getAttribute("data-off"),
-        save = btn.getAttribute("data-save");
+        save = btn.getAttribute("data-save"),
+        sku = btn.getAttribute("data-sku"),
+        dim = btn.getAttribute("data-dim");
 
     /* main price block + "bạn tiết kiệm" line */
     var prices = document.querySelector(".pinfo .prices");
     setText(prices, ".now", now); setText(prices, ".old", old); setText(prices, ".off", off);
     setText(document, "[data-pd-save]", save);
+
+    /* mỗi size là 1 biến thể → cập nhật Mã SKU + Kích thước ở khối "Mô tả" */
+    setText(document, "[data-pd-sku]", sku);
+    setText(document, "[data-pd-dim]", dim);
 
     /* desktop sticky product bar */
     var pb = document.querySelector(".pbar .pb-price");
